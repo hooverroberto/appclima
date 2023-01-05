@@ -197,7 +197,15 @@ body {
 @media (max-width: 500px) {
   .widget {
     height: 400px;
-    width:480px;
+    width: 321px;
+  }
+
+  .widget .weatherInfo{
+    flex: auto;
+  }
+
+  .widget .date{
+    flex: auto;
   }
   
   .widget .extra-temp{
