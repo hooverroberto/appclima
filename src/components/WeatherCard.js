@@ -1,6 +1,6 @@
-import  React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const WeatherCard = ({tempInfo}) => {
+const WeatherCard = ({ tempInfo }) => {
     const {
         temp,
         humidity,
@@ -11,16 +11,16 @@ const WeatherCard = ({tempInfo}) => {
         country,
         sunset,
     } = tempInfo;
-    
+
 
     const [weatherIcon, SetWeatherIcon] = useState("");
     let sec = sunset;
-    let date = new Date( sec * 1000);
+    let date = new Date(sec * 1000);
     let timeStr = `${date.getHours()}:${date.getMinutes()}`;
 
-    useEffect (() => {
+    useEffect(() => {
         if (weathermood) {
-            switch (weathermood){
+            switch (weathermood) {
                 case "Clouds":
                     SetWeatherIcon("wi-day-cloudy");
                     break;
@@ -33,14 +33,14 @@ const WeatherCard = ({tempInfo}) => {
                 case "Mist":
                     SetWeatherIcon("wi-fog");
                     break;
-                    default:
+                default:
                     SetWeatherIcon("wi-fog");
                     break;
             }
         }
     }, [weathermood]);
-    return  (
-        <div>
+    return (
+        <div className='container'>
             <article className='widget'>
                 <div className='weatherIcon'>
                     <i className={`wi ${weatherIcon}`}></i>
@@ -51,21 +51,21 @@ const WeatherCard = ({tempInfo}) => {
                     </div>
 
                     <div className='description'>
-                    <div className='weatherCondition'>{weathermood}</div>
-                    <div className='place'>
-                        {name}, <b>{country}</b>
-                    </div>
+                        <div className='weatherCondition'>{weathermood}</div>
+                        <div className='place'>
+                            {name}, <b>{country}</b>
+                        </div>
                     </div>
 
                 </div>
 
                 <div className='date'>{new Date().toLocaleString()}</div>
                 <div className='extra-temp'>
-                    <div className='temp-info-minmax'>
+                    <div className='temp-info-minmax p'>
                         <div className='two-sided-section'>
                             <p><i className='wi wi-sunset'></i></p>
                             <p className='extra-info-leftside'>
-                                {timeStr} <br/> Sunset
+                                {timeStr} <br /> Sunset
                             </p>
                         </div>
                         <div className='two-sided-section'>
@@ -73,25 +73,25 @@ const WeatherCard = ({tempInfo}) => {
                                 <i className='wi wi-humidity'></i>
                             </p>
                             <p className='extra-info-leftside'>
-                                {humidity} <br/> Humidity
+                                {humidity} <br /> Humidity
                             </p>
                         </div>
                     </div>
-                    <div className='weather-extra-info'>
+                    <div className='weather-extra-info p'>
                         <div className='two-sided-section'>
                             <p><i className='wi wi-rain'></i></p>
                             <p className='extra-info-leftside'>
-                                {pressure} <br/> Pressure
+                                {pressure} <br /> Pressure
                             </p>
                         </div>
                         <div className='two-sided-section'>
                             <p><i className='wi wi-strong-wind'></i></p>
                             <p className='extra-info-leftside'>
-                                {speed} <br/> Speed
+                                {speed} <br /> Speed
                             </p>
                         </div>
-                        </div>    
-                    </div>            
+                    </div>
+                </div>
             </article>
         </div>
     )
