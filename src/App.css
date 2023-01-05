@@ -195,6 +195,12 @@ body {
 
 
 @media (max-width: 500px) {
+  .container{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
   .widget {
     height: 400px;
     width: 321px;
